@@ -1,13 +1,12 @@
 <div id="<%= dom_id movie %>">
   <div>
-    <strong>Title:</strong>
-    <%= movie.title %>
+    <h1 class="movie-title"><%= movie.title %></h1>
   </div>
 
-  <div>
-    <strong>Rating:</strong>
-    <%= movie.rating %>
-  </div>
+ <div>
+  <strong>Rating:</strong>
+  <span class="rating <%= rating_class(movie.rating) %>"><%= movie.rating %></span>
+</div>
 
   <div>
     <strong>Description:</strong>
@@ -16,7 +15,7 @@
 
   <div>
     <strong>Release date:</strong>
-    <%= movie.release_date %>
+    <%= I18n.l(movie.release_date.to_date, format: "%B %-d, %Y") if movie.release_date.present? %>
   </div>
 
 </div>

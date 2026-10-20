@@ -8,3 +8,61 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.sorted-asc {
+  background-color: #e2f0ff;
+}
+
+.sorted-desc {
+  background-color: #ffe8cc;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #888;
+  padding: 0.5rem;
+}
+
+th.sorted-asc,
+td.sorted-asc {
+  background-color: #e2f0ff;
+}
+
+th.sorted-desc,
+td.sorted-desc {
+  background-color: #ffe8cc;
+}
+
+.rating {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+
+.rating-g     { background: #d9f2d9; color: #164d16; }
+.rating-pg    { background: #fff2b3; color: #503d00; }
+.rating-pg-13 { background: #ffe0b3; color: #663300; }
+.rating-r     { background: #ffd6d6; color: #660000; }
+.rating-nc-17 { background: #e6d9f2; color: #3d1a5c; }
+.rating-other { background: #eeeeee; color: #222222; }
+
+.movie-title {
+  font-size: 2rem;
+}
+
+.movie-form-field {
+  margin-bottom: 1rem;
+}
+
+.movie-form-text {
+    font-size: 2rem;
+}
+
+.movie-form-header {
+    font-size: 3rem;
+}

@@ -8,17 +8,37 @@
   <table>
     <thead>
       <tr>
-        <th><%= link_to 'Title', movies_path(sort: 'title', direction: next_sort_direction('title')) %></th>
-        <th><%= link_to 'Rating', movies_path(sort: 'rating', direction: next_sort_direction('rating')) %></th>
-        <th><%= link_to 'Release Date', movies_path(sort: 'release_date', direction: next_sort_direction('release_date')) %></th>
+        <th class="<%= sorted_column_class('title') %>"
+            aria-sort="<%= sorted_column?('title') ? (current_movie_sort_direction == 'asc' ? 'ascending' : 'descending') : 'none' %>">
+          <%= link_to "Title", movies_path(sort: "title", direction: next_sort_direction("title")) %>
+          <% if sorted_column?("title") %>
+            <span aria-hidden="true"><%= current_movie_sort_direction == "asc" ? "▲" : "▼" %></span>
+          <% end %>
+        </th>
+        <th class="<%= sorted_column_class('rating') %>"
+            aria-sort="<%= sorted_column?('rating') ? (current_movie_sort_direction == 'asc' ? 'ascending' : 'descending') : 'none' %>">
+          <%= link_to "Rating", movies_path(sort: "rating", direction: next_sort_direction("rating")) %>
+          <% if sorted_column?("rating") %>
+            <span aria-hidden="true"><%= current_movie_sort_direction == "asc" ? "▲" : "▼" %></span>
+          <% end %>
+        </th>
+        <th class="<%= sorted_column_class('release_date') %>"
+            aria-sort="<%= sorted_column?('release_date') ? (current_movie_sort_direction == 'asc' ? 'ascending' : 'descending') : 'none' %>">
+          <%= link_to "Release Date", movies_path(sort: "release_date", direction: next_sort_direction("release_date")) %>
+          <% if sorted_column?("release_date") %>
+            <span aria-hidden="true"><%= current_movie_sort_direction == "asc" ? "▲" : "▼" %></span>
+          <% end %>
+        </th>
       </tr>
     </thead>
       <tbody>
         <% @movies.each do |movie|%>
           <tr>
-            <td><%= movie.title%></td>
-            <td><%= movie.rating%></td>
-            <td><%= movie.release_date%></td>
+            <td class="<%= sorted_column_class('title') %>">
+              <%= link_to movie.title, movie_path(movie) %>
+            </td>
+            <td class="<%= sorted_column_class('rating') %>"><%= movie.rating %></td>
+            <td class="<%= sorted_column_class('release_date') %>"><%= movie.release_date %></td>
           </tr>
         <% end %>
       </tbody>

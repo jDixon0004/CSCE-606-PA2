@@ -11,27 +11,22 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="movie-form-field movie-form-text">
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
-  <div>
-    <%= form.label :rating, style: "display: block" %>
-    <%= form.text_field :rating %>
-  </div>
-
-  <div>
+  <div class="movie-form-field movie-form-text">
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description, rows: 6, cols: 60 %>
   </div>
 
-  <div>
+  <div class="movie-form-field movie-form-text">
     <%= form.label :release_date, style: "display: block" %>
     <%= form.text_field :release_date %>
   </div>
 
-  <div>
+  <div class="movie-form-field">
     <%= form.submit %>
   </div>
 <% end %>
